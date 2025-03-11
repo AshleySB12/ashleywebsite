@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
         /* Background image */
@@ -23,32 +24,24 @@
                     auto !important;
                     overflow:hidden;
         }
+
+        
         /* Sidebar styles */
         .sidebar {
             position: fixed;
-            left: 285px;
-            top: 0;
-            width: 150px;
+            left: 265px;
+            top: -60px;
+            width: 180px;
             height: 110vh;
-            background-image: url('https://i.pinimg.com/736x/83/ad/af/83adaf6d692bf89ae4df29e2ba83ba03.jpg?format=1500wg');
+            background-image: url('images/jeanbar.png');
     background-size: cover;
     background-position: center;
             padding: 15px;
             text-align: center;
-            font-family: 'Fuzzy Bubbles', sans-serif;
+            
         }
-         
-        /* Sidebar links */
-        .sidebar a {
-            display: block;
-            width: 100%;
-            padding: 5px 0;
-            font-size: 18px;
-            text-align: center;
-            color: black;
-            margin-bottom: 7px;
-            text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5), 4px 6px 5px rgba(206,63,63,0.17);
-        }
+        
+
 
         .sidebar a:hover {
             background: #ff99bb;
@@ -58,7 +51,7 @@
         .content {
             position: absolute;
             margin-left: 475px;
-            margin-top: 400px;
+            margin-top: 440px;
             padding: 20px;
             color: black;
         }
@@ -67,20 +60,51 @@
 <body>
 
     <div class="sidebar">
-   <div class="nav-container">
+        <div class="nav-container">
             <img src="https://i.pinimg.com/736x/ee/c0/22/eec022ac36779c265b185bba04ae79c5.jpg" alt="Sidebar Icon" class="nav-image">
-          <h2>NAVIGATION</h2>
-            <a href="#">Home &#127872;</a>
-            <a href="#">Backstory &#128218;</a>
-            <a href="#">Explore &#x1F496;</a>
-            <a href="#">Mini Game &#x1F3AE;</a>
+            
+            <button class="nav-button button-home" onclick="location.href='home.html'">
+                <img src="images/button1.png" alt="Home">
+            </button>
+            
+            <button class="nav-button button-backstory" onclick="location.href='backstory.html'">
+                <img src="images/button2.png" alt="Backstory">
+            </button>
+            
+            <button class="nav-button button-explore" onclick="location.href='explore.html'">
+                <img src="images/button3.png" alt="Explore">
+            </button>
+            
+            <button class="nav-button button-minigame" onclick="location.href='minigame.html'">
+                <img src="images/button4.png" alt="Mini Game">
+            </button>
         </div>
     </div>
     
-    <div class="content">
-        <h1>Welcome Sweetie!&#127851;</h1>
-        <p>Explore Nini's dollhouse with her. <br> Dive into the wonders of Nini's home world. <br> She'll show you around her toy-filled house!</p>
-    </div>
+    <img src="images/nini_home.png" class="nini-home" alt="Nini's Home">
+    <audio id="hoverSound" src="audio/cutedot.mp3" preload="auto"></audio>
+    
+    <img src="images/keychain.png" alt="Keychain" class="keychain">
+    <audio id="nyahAudio" preload="auto">
+        <source src="audio/nyah.mp3" type="audio/mp3">
+    </audio>
 
+    <img src="images/sewing_thread.png" alt="Sewing Thread" class="sewing-thread">
+
+
+    <div class="content">
+        <h1 style="color:rgb(26, 47, 105); font-family:'Pangolin', sans-serif;">
+            Welcome Sweetie!&#127851;
+        </h1>
+        <p style="font-family:'Pangolin', sans-serif;">
+            Explore Nini's dollhouse with her. <br> Dive into the wonders of Nini's home world. <br> She'll show you around her toy-filled house!
+        </p>
+    </div>
+    <img src="images/pin_needle.png" alt="Pin Needle" class="pin-needle">
+   
 </body>
+
+<script src="js/script.js"></script>
+
 </html>
+
