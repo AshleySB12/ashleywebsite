@@ -1,9 +1,12 @@
 .nav-image {
   display: block;
-  margin: 75px auto 0 auto; 
+  margin: 70px auto 0 auto; 
+  margin-left:15px;
   width: 135px;
   height: 135px;
   object-fit: contain;
+  border: 3px dashed #164a64;
+  border-radius: 5px; 
 }
 
 
@@ -269,3 +272,76 @@ body {
 .sparks:hover {
   animation: glow 1.5s infinite alternate ease-in-out;
 }
+
+.yellowbut {
+  position: absolute;
+  top: 495px; /* Adjust vertical position */
+  left: 350px; /* Adjust horizontal position */
+  width: 30px; /* Adjust size */
+  height: auto;
+}
+
+.pinkbut {
+  position: absolute;
+  top: 450px; /* Adjust vertical position */
+  left: 320px; /* Adjust horizontal position */
+  width: 35px; /* Adjust size */
+  height: auto;
+}
+
+.bluebut {
+  position: absolute;
+  top: 490px; /* Adjust vertical position */
+  left: 285px; /* Adjust horizontal position */
+  width: 40px; /* Adjust size */
+  height: auto;
+}
+
+
+
+/* Animation for spinning */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg); /* Start from 0 degrees */
+  }
+  100% {
+      transform: rotate(360deg); /* End at 360 degrees */
+  }
+}
+
+/* Apply the spin animation to each image when hovered */
+.yellowbut,
+.pinkbut,
+.bluebut {
+  position: absolute;
+  height: auto;
+  z-index: 10;  /* Ensure the images are on top */
+  transition: transform 0.5s ease-in-out;  /* Smooth transition */
+}
+
+/* Trigger the spinning animation on hover */
+.yellowbut:hover,
+.pinkbut:hover,
+.bluebut:hover {
+  animation: spin 1s linear infinite;  /* Infinite spin with 1 second duration */
+}
+
+/* Positioning for each image */
+.yellowbut {
+  top: 495px;  /* Adjust vertical position */
+  left: 350px;  /* Adjust horizontal position */
+  width: 30px;  /* Adjust size */
+}
+
+.pinkbut {
+  top: 450px;  /* Adjust vertical position */
+  left: 320px;  /* Adjust horizontal position */
+  width: 35px;  /* Adjust size */
+}
+
+.bluebut {
+  top: 490px;  /* Adjust vertical position */
+  left: 285px;  /* Adjust horizontal position */
+  width: 40px;  /* Adjust size */
+}
+
