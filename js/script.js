@@ -36,18 +36,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Get the elements
+  
   const sparksImage = document.querySelector('.sparks');
   const twinkleAudio = document.getElementById('twinkle-audio');
 
-  // Play the audio when hovering over the sparks image and trigger the glow
+  
   sparksImage.addEventListener('mouseenter', () => {
     twinkleAudio.play();  // Start playing the audio
   });
 
-  // Stop the audio and reset when the mouse leaves
+  
   sparksImage.addEventListener('mouseleave', () => {
-    twinkleAudio.pause();  // Pause the audio
-    twinkleAudio.currentTime = 0;  // Reset audio to the beginning
+    twinkleAudio.pause();  
+    twinkleAudio.currentTime = 0;
   });
+
+
+
+
+  function playAudio() {
+    var audio = document.getElementById('surprisedAudio');
+    audio.play(); // Play the audio
+}
+
+// Function to stop the audio when the hover ends
+function stopAudio() {
+    var audio = document.getElementById('surprisedAudio');
+    audio.pause(); // Pause the audio
+    audio.currentTime = 0; // Reset the audio to the beginning
+}
+
+
+function playAudio() {
+    var audio = document.getElementById('hoverAudio');
+    audio.currentTime = 0; // Restart the audio from the beginning
+    audio.volume = 0.1; // Set the volume to 10% for a subtle sound
+    audio.play(); // Play the audio on hover
+}
+
 
