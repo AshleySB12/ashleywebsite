@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Nini's Pockets of Fun</title>
     <style>
+
+
         /* Background image */
         body {
             background-image: url('images/ninihomepage.jpg'), url(https://images.squarespace-cdn.com/content/v1/58ffd5c3db29d64e26ece1a3/1493662927115-FYI2JPHAZ24RHWTYIAPG/LALA_TownCtr1_v1.jpg?format=1500w);
@@ -25,7 +27,7 @@
                     overflow:hidden;
         }
 
-        
+     
         /* Sidebar styles */
         .sidebar {
             position: fixed;
@@ -51,33 +53,51 @@
         .content {
             position: absolute;
             margin-left: 475px;
-            margin-top: 440px;
+            margin-top: 445px;
             padding: 20px;
             color: black;
         }
     </style>
 </head>
 <body>
-
+  
     <div class="sidebar">
         <div class="nav-container">
-            <img src="https://i.pinimg.com/736x/ee/c0/22/eec022ac36779c265b185bba04ae79c5.jpg" alt="Sidebar Icon" class="nav-image">
+        
+            <audio id="surprisedAudio" src="audio/surprised.mp3" preload="auto"></audio>
+
+            <img class="nav-image" 
+                src="images/ninismile.jpg" 
+                onmouseover="this.src='images/ninisurprise.jpg'; document.getElementById('surprisedAudio').play();" 
+                onmouseout="this.src='images/ninismile.jpg'; document.getElementById('surprisedAudio').pause(); document.getElementById('surprisedAudio').currentTime=0;" />
             
-            <button class="nav-button button-home" onclick="location.href='home.html'">
-                <img src="images/button1.png" alt="Home">
-            </button>
-            
-            <button class="nav-button button-backstory" onclick="location.href='backstory.html'">
-                <img src="images/button2.png" alt="Backstory">
-            </button>
-            
-            <button class="nav-button button-explore" onclick="location.href='explore.html'">
-                <img src="images/button3.png" alt="Explore">
-            </button>
-            
-            <button class="nav-button button-minigame" onclick="location.href='minigame.html'">
-                <img src="images/button4.png" alt="Mini Game">
-            </button>
+
+                <audio id="hoverAudio" src="audio/planks.mp3" preload="auto"></audio>
+
+                <button class="nav-button button-home" 
+                    onmouseover="playAudio()" 
+                    onclick="location.href='home.html'">
+                    <img src="images/button1.png" alt="Home">
+                </button>
+                
+                <button class="nav-button button-backstory" 
+                    onmouseover="playAudio()" 
+                    onclick="location.href='backstory.html'">
+                    <img src="images/button2.png" alt="Backstory">
+                </button>
+                
+                <button class="nav-button button-explore" 
+                    onmouseover="playAudio()" 
+                    onclick="location.href='explore.html'">
+                    <img src="images/button3.png" alt="Explore">
+                </button>
+                
+                <button class="nav-button button-minigame" 
+                    onmouseover="playAudio()" 
+                    onclick="location.href='minigame.html'">
+                    <img src="images/button4.png" alt="Mini Game">
+                </button>
+                
         </div>
     </div>
     
@@ -101,10 +121,13 @@
         </p>
     </div>
     <img src="images/pin_needle.png" alt="Pin Needle" class="pin-needle">
+
+    <img src="images/yellowbut.png" alt="Yellow Button" class="yellowbut">
+<img src="images/pinkbut.png" alt="Pink Button" class="pinkbut">
+<img src="images/bluebut.png" alt="Blue Button" class="bluebut">
    
 </body>
 
 <script src="js/script.js"></script>
 
 </html>
-
