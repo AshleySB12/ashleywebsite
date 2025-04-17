@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="images/ninifav.png">
+  <title>Nini's Playdate</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://i.pinimg.com/736x/15/9d/b1/159db163d7deecd95573ea75538b859b.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Comic Neue', cursive;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#backhome {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  padding: 0;
+  cursor: url('images/ninicursor.cur'), auto;
+  border-radius: 5px;
+  z-index: 10;
+  background: none;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+#backhome img {
+  width: 140px; /* Adjust the width of the button */
+  height: auto; /* Keep the aspect ratio intact */
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+#backhome:hover {
+  box-shadow: 0 4px 8px rgba(39, 7, 135, 0.2);
+  animation: slideFromLeft 0.4s ease-out;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.explorecovercontainer {
+  width: 1130px;
+  height: 660px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url('images/playdate.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 6px dashed #275573;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding-bottom: 40px;
+  overflow: hidden;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#coverContainer {
+  transition: opacity 0.5s ease;
+}
+
+
+
+.playdatetitle {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 690px;
+  z-index: 1;
+  animation: wiggle 1s ease-in-out;
+  animation-delay: 0s, 1s;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+/* Wiggle */
+@keyframes wiggle {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(5deg); }
+  50% { transform: translateX(-50%) rotate(-5deg); }
+  75% { transform: translateX(-50%) rotate(3deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+#volume-icon {
+  position: absolute;
+  top: 20px;
+  left: 1470px; 
+  width: 45px; 
+  height: auto; 
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+.comic-panel-container {
+  width: 1100px;
+  height: 650px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://i.pinimg.com/736x/a9/0f/4d/a90f4d4ef47c46b6362ec24961392809.jpg);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-bottom: 80px;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.comic-img {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  border: 5px solid #275573;
+  border-radius: 16px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#panel1 {
+  position: absolute;    
+  top: 25px;              
+  left: 265px;      
+  width: 480px;    
+  height: auto;      
+  margin-top: 30px;    
+  margin-bottom: 20px; 
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#panel2 {
+  position: absolute;
+  top: 55px;
+  left: 790px; /* shifted to the right */
+  width: 480px;
+  height: auto;
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+#panel3 {
+  position: absolute;
+  top: 360px;
+  left: 50%;                          /* Start at the middle of the container */
+  transform: translateX(-50%);        /* Shift back by half the panel’s width */
+  width: 550px;
+  height: auto;
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#panel4 {
+  position: absolute;      /* Take it out of the normal flow */
+  top: 25px;               /* Distance from the top of the container */
+  left: 265px;             /* Horizontal placement */
+  width: 480px;            /* Shrinks it down to fit comfortably inside */
+  height: auto;            /* Keeps the aspect ratio */
+  margin-top: 30px;        /* Pushes it down from the top a bit */
+  margin-bottom: 20px;     /* Adds breathing space at bottom */
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;     /* Ensures proper image fit */
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#panel5 {
+  position: absolute;
+  top: 55px;
+  left: 790px;
+  width: 480px;
+  height: auto;
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+#panel6 {
+  position: absolute;      /* Take it out of the normal flow */
+  top: 330px;               /* Distance from the top of the container */
+  left: 265px;             /* Horizontal placement */
+  width: 480px;            /* Shrinks it down to fit comfortably inside */
+  height: auto;            /* Keeps the aspect ratio */
+  margin-top: 30px;        /* Pushes it down from the top a bit */
+  margin-bottom: 20px;     /* Adds breathing space at bottom */
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;   
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+#panel7 {
+  position: absolute;
+  top: 360px;
+  left: 790px;
+  width: 480px;
+  height: auto;
+  border-radius: 16px;
+  border: 4px solid #83335D;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+   
+    .start-comic-btn {
+      margin-top: 24px;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: #ffb3d9;
+      border: 3px dashed #ff69b4;
+      border-radius: 16px;
+      color: #fff;
+      box-shadow: 0 6px 12px rgba(255, 105, 180, 0.4);
+      transition: all 0.3s ease;
+      cursor: url(images/ninicursor.cur), auto;
+    }
+
+    .start-comic-btn:hover {
+      background-color: #ffcce6;
+      transform: scale(1.05);
+      cursor: url(images/ninicursor.cur), auto;
+    }
+
+    .arrow-button {
+  width: 110px;
+  height: auto;
+  position: relative;
+  left: 470px;
+  z-index: 1;
+  animation: boopBounce 2s ease-in-out infinite, softGlow 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.arrow-button:hover {
+  transform: scale(1.1);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+/* Cute bounce/boop animation */
+@keyframes boopBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(2deg);
+  }
+  70% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+/* Soft glowing animation */
+@keyframes softGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px #33ae52);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px #0a8033) drop-shadow(0 0 10px #096326);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#coverContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.6s ease;
+  z-index: 1;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+#comicContainer {
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.6s ease;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+.start-back-button {
+  position: absolute;
+  bottom: 60px;
+  left: 260px;
+  width: 105px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.start-back-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+.continue-button {
+  position: absolute;
+  bottom: 60px;
+  right: 260px;
+  width: 105px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* cute shadow! */
+  border: none;
+  outline: none;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.continue-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+.prepanel {
+  position: absolute;
+  bottom: 60px;
+  left: 260px;
+  width: 105px;
+  height: auto;
+  cursor: url(images/ninicursor.cur), auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+}
+
+.prepanel:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+
+.next-panel {
+  position: absolute;
+  bottom: 60px;
+  right: 260px;
+  width: 105px;
+  height: auto;
+  cursor: url(images/ninicursor.cur), auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* cute shadow! */
+  border: none;
+  outline: none;
+}
+
+.next-panel:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+    <button id="backhome" onclick="window.location.href='index.html'">
+        <img src="images/backhome.png" alt="Back to Homepage">
+      </button>
+
+    <div class="explorecovercontainer" id="coverContainer">
+        <img src="images/playdatetitle.png" alt="Playdate Title" class="playdatetitle">
+    <img id="startComic" src="images/arrowexplore.png" alt="Start Comic" class="arrow-button">
+  </div>
+
+<!-- Volume Icon -->
+<img id="volume-icon" src="images/volumeicon.png" alt="Volume Icon" />
+
+
+  <audio id="startAudio" src="audio/startplaydate.mp3"></audio>
+  <audio id="readmusic" src="audio/readmusic.mp3" loop></audio>
+
+  <div class="comic-panel-container" id="comicContainer">
+    <img src="images/panel1.jpg" alt="Panel 1" class="comic-panel" id="panel1">
+    <img src="images/panel2.jpg" alt="Panel 2" class="comic-panel" id="panel2">
+    <img src="images/panel3.jpg" alt="Panel 3" class="comic-panel" id="panel3">
+    <img src="images/startback.png" alt="Back to Start" class="start-back-button" id="startBack">
+    <img src="images/continue.png" alt="Continue" class="continue-button" id="continue">
+  </div>
+  
+
+  <div class="comic-panel-container" id="comicContainer2" style="display: none; opacity: 0;">
+    <img src="images/panel4.jpg" alt="Panel 4" class="comic-panel" id="panel4">
+    <img src="images/panel5.jpg" alt="Panel 5" class="comic-panel" id="panel5">
+    <img src="images/panel6.jpg" alt="Panel 6" class="comic-panel" id="panel6">
+    <img src="images/panel7.jpg" alt="Panel 7" class="comic-panel" id="panel7">
+    <img src="images/prepanel.png" alt="Prepanel" class="prepanel" id="prepanel">
+    <img src="images/nextpanel.png" alt="Next Panel" class="next-panel" id="nextpanel">
+  </div>
+
+
+
+  <div class="comic-panel-container" id="comicContainer3" style="display: none; opacity: 0;">
+    <img src="images/panel8.jpg" alt="Panel 8" class="comic-panel" id="panel8">
+    <img src="images/panel9.jpg" alt="Panel 9" class="comic-panel" id="panel9">
+    <img src="images/panel10.jpg" alt="Panel 10" class="comic-panel" id="panel10">
+  </div>
+  
+  
+  <script>
+
+
+startComic.addEventListener("click", () => {
+  const startAudio = document.getElementById("startAudio");
+  const readmusic = document.getElementById("readmusic");
+
+  startAudio.play();
+  startAudio.onended = () => {
+    readmusic.play();
+  };
+
+  comicContainer.style.zIndex = "2";
+  comicContainer.style.display = "flex";
+
+  requestAnimationFrame(() => {
+    coverContainer.style.opacity = "0.15";
+    comicContainer.style.opacity = "1";
+  });
+
+  setTimeout(() => {
+    coverContainer.style.display = "none";
+  }, 800);
+});
+
+
+
+const volumeIcon = document.getElementById("volume-icon");
+const readmusic = document.getElementById("readmusic");
+
+let volumeState = 0; // 0 = full, 1 = low, 2 = muted
+
+volumeIcon.addEventListener("click", () => {
+  if (volumeState === 0) {
+    readmusic.volume = 0.1;  // Low volume
+    volumeState = 1;
+  } else if (volumeState === 1) {
+    readmusic.volume = 0.0;  // Muted
+    volumeState = 2;
+  } else {
+    readmusic.volume = 1.0;  // Full volume
+    volumeState = 0;
+  }
+});
+
+
+
+document.getElementById("startBack").addEventListener("click", () => {
+  // Stop the music
+  readmusic.pause();
+  readmusic.currentTime = 0;
+
+  // Instantly show the cover again
+  comicContainer.style.display = "none";
+  coverContainer.style.display = "flex";
+  coverContainer.style.opacity = "1"; // Optional, to ensure it's visible
+});
+
+
+
+document.getElementById("continue").addEventListener("click", () => {
+  comicContainer.style.display = "none";
+
+  const comicContainer2 = document.getElementById("comicContainer2");
+  comicContainer2.style.display = "flex";
+  comicContainer2.style.opacity = "1";
+  comicContainer2.style.zIndex = "3";
+});
+
+
+
+// Go back to comicContainer from comicContainer2 — INSTANT
+document.getElementById("prepanel").addEventListener("click", () => {
+  const comicContainer2 = document.getElementById("comicContainer2");
+  const comicContainer = document.getElementById("comicContainer");
+
+  comicContainer2.style.display = "none";
+  comicContainer.style.display = "flex";
+  comicContainer.style.opacity = "1";
+  comicContainer.style.zIndex = "3";
+});
+
+
+// Go forward to comicContainer3 — INSTANT
+document.getElementById("nextpanel").addEventListener("click", () => {
+  const comicContainer2 = document.getElementById("comicContainer2");
+  const comicContainer3 = document.getElementById("comicContainer3");
+
+  comicContainer2.style.display = "none";
+  comicContainer3.style.display = "flex";
+  comicContainer3.style.opacity = "1";
+  comicContainer3.style.zIndex = "3";
+});
+
+
+
+  </script>
+
+</body>
+</html>
+
