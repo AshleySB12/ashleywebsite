@@ -2,67 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
-  <title>Mini Game - Shuffle Puzzle</title>
-
+  <title>Nini's Dress-Up Game</title>
+  <link rel="icon" type="image/png" href="images/ninifav.png">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-    html, body {
+    body {
+      background-image: url('https://static.wikia.nocookie.net/lalaloopsyland/images/a/a4/NS1E09B_Salon_de_frente.png/revision/latest?cb=20180917210722');
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Ensures the image doesn't repeat */
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background-image: url('https://images.squarespace-cdn.com/content/v1/58ffd5c3db29d64e26ece1a3/1519672686955-QR1NAWV6FIJ0490GOL91/Lala_dyna+house.jpg?format=1500w');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f9f2ff;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
       cursor: url('images/ninicursor.cur'), auto;
-
     }
 
-    #game-container {
-      width: 840px;
-  height: 600px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 8px rgba(98, 7, 33, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+
+
+    .game-container {
+  width: 1000px;
+  height: 620px;
+  background-image: url(images/dressupcoverback.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  border: 6px groove #4db12c;
   position: relative;
   overflow: hidden;
-  
-  background-image: url('images/flowerback.jpg'); /* Make sure to replace with the correct path to your image */
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Keeps the image centered */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .full-width-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .center-img {
-      display: block;
-      margin: 10px auto;
-    }
+  text-align: center;
+  z-index: 1;
+  cursor: url('images/ninicursor.cur'), auto;
+  box-shadow: 8px 8px 15px rgba(4, 68, 152, 0.449);
+}
 
 
-#backhome {
+    
+    #backhome {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -76,17 +56,110 @@
   transition: all 0.3s ease;
 }
 
-
 #backhome img {
   width: 140px; /* Adjust the width of the button */
   height: auto; /* Keep the aspect ratio intact */
 }
 
-
 #backhome:hover {
   box-shadow: 0 4px 8px rgba(39, 7, 135, 0.2);
   animation: slideFromLeft 0.4s ease-out; 
 }
+
+#backtocover {
+  position: absolute;
+  top: 540px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  border: none;
+  left: 832px;
+  cursor: url('images/ninicursor.cur'), auto;
+  box-shadow: 0 8px 14px rgba(255, 170, 212, 0.4);
+  transition: all 0.25s ease;
+  z-index: 10;
+  display: flex;
+  animation: sparkleBounce 1.2s ease-out;
+}
+
+#backtocover:hover {
+  background-color: #fff7fc;
+  transform: scale(1.1) rotate(1.5deg);
+  box-shadow: 0 0 14px #ffd1fa, 0 0 4px #ffe06d;
+
+  animation: sparkleBounce 1.2s ease-out;
+}
+
+
+/* 🍬 Entrance animation */
+@keyframes sparkleBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg) translateY(30px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(2deg) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) rotate(-1deg) translateY(5px);
+  }
+  100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+}
+
+#backtocover img {
+  width: 125px;     /* Change this value to resize */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+
+#randomize {
+  position: absolute;
+  top: 540px;
+  left: 680px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: url('images/ninicursor.cur'), auto;
+  box-shadow: 0 8px 14px rgba(255, 170, 212, 0.4);
+  transition: all 0.25s ease;
+  z-index: 10;
+  animation: sparkleBounce 1.2s ease-out;
+}
+
+#randomize img {
+  width: 135px; /* 🌸 adjust as needed */
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Hover sparkle! */
+#randomize:hover img {
+  transform: scale(1.1) rotate(1.5deg);
+  box-shadow: 0 0 14px #ffd1fa, 0 0 4px #ffe06d;
+}
+
+
+
+
+#volume-icon {
+  position: absolute;
+  top: 20px; /* Align it with the back button vertically */
+  left: 1470px; 
+  cursor: url('images/ninicursor.cur'), auto;
+  width: 45px; /* Adjust size of the icon */
+  height: auto; /* Adjust size of the icon */
+}
+
 
 /* Slide from Left Animation */
 @keyframes slideFromLeft {
@@ -99,112 +172,667 @@
 }
 
 
-
-    #volume-icon {
+.logo-img {
+  width: 410px;
   position: absolute;
-  top: 20px; /* Align it with the back button vertically */
-  left: 1470px; 
-  cursor: url('images/ninicursor.cur'), auto;
-  width: 45px; /* Adjust size of the icon */
-  height: auto; /* Adjust size of the icon */
+  top: 110px;
+  left: 530px;
+  z-index: 2;
+  animation: logoBounce 1s ease-out;
+  filter: drop-shadow(0 0 0.5px #1a2d81) drop-shadow(0 0 1.5px #ecf1ea);
+}
+
+@keyframes logoBounce {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 
-    #puzzle-options {
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
-  flex-wrap: nowrap;       
-  margin-top: -20px;       
-}
 
-.puzzle-btn {
-  width: 150px;
+.curtain-img {
+  position: absolute;
+  top: 15px;
+  left: 1px;
+  width: 500px; /* stretches across the full width */
   height: auto;
-  cursor: url('images/ninicursor.cur'), auto;
-  margin: 8px;
-  display: block;
-  flex-shrink: 0;
-  transition: transform 0.3s ease-in-out; /* Adding transition for smooth rotation */
+  z-index: 3; /* above the background and logo */
+  pointer-events: none; /* makes sure it doesn't block clicks */
 }
 
-.puzzle-btn:hover {
-  transform: rotate(5deg); /* Rotate the button slightly when hovered */
+.curtain-img {
+  animation: curtainWave 3s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.curtain-img {
+  filter: drop-shadow(0 0 4px #123972) drop-shadow(0 0 10px #0fb67c);
 }
 
 
-    #puzzle-board {
-      position: relative;
-      width: 400px;
-      height: 400px;
-      margin-bottom: 20px;
-    }
-
-    .puzzle-image {
-      width: 200px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    #intro-screen {
-      position: relative;
-      z-index: 1;
-    }
-
-    #minielements {
-      position: absolute;
-      top: -185px;
-      left: -315px;
-      width: 615px;
-      height: auto;
-      z-index: 0;
-    }
-
-    #puzzleplay {
-      position: absolute;
-      top: -200px;
-      left: -140px;
-      z-index: 4;
-      cursor: url('images/ninicursor.cur'), auto;
-      width: 260px;
-      height: auto;
-      display: block;
-    }
-
-    #play-button {
-      position: absolute;
-      top: 220px;
-      left: -95px;
-      z-index: 3;
-      cursor: url('images/ninicursor.cur'), auto;
-      width: 175px;
-      height: auto;
-      display: block;
-    }
-
-    #minicover {
-      position: absolute;
-      top: -125px;
-      left: -295px;
-      width: 600px;
-      height: auto;
-      z-index: 2;
-    }
-
-    .iframe-container {
+    /* Cover page styling */
+    .cover-page {
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: 100%;
-      margin-top: 20px;
+      flex-direction: column;
+      text-align: center;
     }
 
-    iframe {
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
-    }
+
+    .start-btn {
+  position: absolute;
+  bottom: 85px;
+  left: 725px;
+  transform: translateX(-50%);
+  width: 200px; /* adjust size as needed */
+  height: auto;
+  cursor: url('images/ninicursor.cur'), auto;
+  transition: transform 0.3s ease;
+}
+
+.start-btn:hover {
+  animation: heartbeatWiggle 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeatWiggle {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  30% {
+    transform: translateX(-50%) scale(1.1) rotate(1deg);
+  }
+  60% {
+    transform: translateX(-50%) scale(0.97) rotate(-1deg);
+  }
+}
+
+
+    .game-content {
+  display: none; /* keep it hidden until needed */
+  width: 100%;
+  height: 100%;  /* Make sure it covers the full height */
+  justify-content: center; /* Adjust based on your preference */
+  align-items: center; /* Adjust based on your preference */
+  background-image: url('images/backdress.jpg');
+  background-size: cover;  /* Ensure the background image fully covers the container */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+
+.clothing-panel {
+  display: flex;
+  background-image: url(https://i.pinimg.com/736x/17/52/1a/17521ab92e0e924eb408bd9705bc5fa4.jpg);
+  border: 4px dashed #5d8631;
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  border-radius: 24px;
+  padding: 16px;
+  width: 460px;
+  height: 343px;
+  margin: 10px;
+  box-shadow: 0 6px 20px rgba(105, 17, 114, 0.577);
+  overflow: hidden;
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+
+
+
+
+/* Sidebar icons */
+.category-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 12px;
+  cursor: url(images/ninicursor.cur);
+}
+
+.icon-btn {
+  background: #faffff;
+  background-color: #deeccf;
+  border: 3px solid #5d8631;
+  border-radius: 16px; /* Rounded square: softer than a full circle */
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #c44b8c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: url(images/ninicursor.cur)auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.icon-btn:hover {
+  animation: wiggle 0.3s ease-in-out;
+  background-color: #fce3f0;
+  cursor: url(images/ninicursor.cur)auto;
+}
+
+
+
+.icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps the full image visible, no cropping */
+  cursor: url(images/ninicursor.cur)auto;
+}
+
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 16px;
+  flex: 1;
+  overflow-y: none;
+  max-height: 100%;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+  cursor: url(images/ninicursor.cur);
+}
+
+
+.option-section {
+  background-image: url('https://i.pinimg.com/736x/7c/ff/1a/7cff1a240213a16af3562c85de3ef0ce.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  align-items: center; /* 🔥 This vertically centers the buttons */
+
+  width: 100%;
+  height: 100%; /* 🔥 This line ensures it fills all vertical space */
+  max-width: none; /* allow it to go full width if needed */
+  border-radius: 20px;
+  cursor: url(images/ninicursor.cur);
+}
+
+
+.option-section button {
+  box-shadow: 0 4px 8px rgba(196, 75, 140, 0.2); /* soft pink glow */
+}
+
+
+.option-section.active {
+  display: flex;
+}
+
+
+.option-section button {
+  background-image: url(https://i.pinimg.com/736x/07/5b/00/075b00282b1b3cd0119f201f3b8127fd.jpg);
+  border: 2px solid #c44b8c;
+  width: 250px;
+  border-radius: 20px;
+  padding: 8px;
+  color: #a0356f;
+  cursor: url(images/ninicursor.cur) auto;
+  transition: background-color 0.3s, transform 0.2s;
+
+  /* ✅ Center content inside the button */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Optional extras */
+  box-shadow: 0 4px 8px rgba(196, 75, 140, 0.2);
+}
+
+
+
+/* Hover effect */
+.option-section button:hover {
+  background-color: #f8b7d6;
+  transform: translateY(-4px) scale(1.05); /* gentle bounce */
+  box-shadow: 0 6px 12px rgba(196, 75, 140, 0.25);
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+
+
+.clothing-btn img {
+  width: 70px;          /* Adjust as needed! */
+  height: 70px;
+  object-fit: contain;  /* Keeps the image neat */
+  border-radius: 12px;  /* Optional: rounds the image corners */
+  cursor: url(images/ninicursor.cur);
+}
+
+
+#hair-options,
+#face-options,
+#top-options,
+#bottom-options,
+#shoes-options,
+#pet-options {
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding: 12px 0;
+  flex-wrap: wrap; /* Allows wrapping if too many buttons */
+}
+
+ /* Make sure all skin color images have the same size and fixed position */
+.skin-image {
+  position: absolute;
+  top: 180px;
+  left: 80px;
+  width: 200px; /* Set a fixed width for all images */
+  height: auto; /* Set a fixed height for all images */
+  display: none; /* Initially hide all images */
+  z-index: 1; /* Set a base z-index so images can layer correctly */
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+
+/* Same styling for the light skin image */
+.light-image {
+  position: absolute;
+  top: 180px;
+  left: 80px;
+  width: 200px;
+  height: auto;
+  display: none;
+  z-index: 1; /* Make sure it layers properly */
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+
+
+.default {
+  position: absolute;
+  top: 250px;
+  left: 98px;
+  width: 150px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+
+.smile {
+  position: absolute;
+  top: 262px;
+  left: 107px;
+  width: 133px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+
+.tongue {
+  position: absolute;
+  top: 250px;
+  left: 99px;
+  width: 150px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+
+
+
+.ruffle-top {
+  position: absolute;
+  top: 328px;
+  left: 108px;
+  width: 123.5px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+.cardigan {
+  position: absolute;
+  top: 319px;
+  left: 101px;
+  width: 160px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+
+.wrap-top {
+  position: absolute;
+  top: 325.5px;
+  left: 98px;
+  width: 163px;
+  height: auto;
+  display: none; 
+  z-index: 2; /* Above the skin image */
+}
+
+
+.jean-skirt {
+  position: absolute;
+  top: 394px;
+  left: 105px;
+  width: 132.2px;
+  height: auto;
+  display: none; 
+  z-index: 1; 
+}
+
+
+.khaki-skirt {
+  position: absolute;
+  top: 394px;
+  left: 107px;
+  width: 124px;
+  height: auto;
+  display: none; 
+  z-index: 1; 
+}
+
+
+.gray-skirt {
+  position: absolute;
+  top: 394px;
+  left: 97px;
+  width: 148.7px;
+  height: auto;
+  display: none; 
+  z-index: 1; 
+}
+
+
+
+.pet-cub {
+  position: absolute;
+  top: 453px;
+  left: 250px;
+  width: 140px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+
+.pet-bunny {
+  position: absolute;
+  top: 445px;
+  left: 254px;
+  width: 140px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+.pet-cat {
+  position: absolute;
+  top: 445px;
+  left: 257px;
+  width: 150px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+.brown-boots {
+  position: absolute;
+  top: 490px;
+  left: 105.3px;
+  width: 135px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+.sneakers {
+  position: absolute;
+  top: 528.9px;
+  left: 111.7px;
+  width: 122.3px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+.mary-janes {
+  position: absolute;
+  top: 528px;
+  left: 108px;
+  width: 127px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+.brown-updo {
+  position: absolute;
+  top: 160px;
+  left: 86px;
+  width: 190px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+.braid-blonde {
+  position: absolute;
+  top: 171.8px;
+  left: 76.8px;
+  width: 208.5px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+.wavy-hair {
+  position: absolute;
+  top: 161.8px;
+  left: 70.7px;
+  width: 217px;
+  height: auto;
+  display: none; 
+  z-index: 2; 
+}
+
+
+
+
+/* Show light image when game content is displayed */
+#game-content {
+  position: relative;
+}
+
+#game-content.active .light-image {
+  display: block; /* Display the image when game is active */
+}
+
+/* Skin color button container */
+.skin-color-buttons {
+  display: none;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 10px; /* Space between the buttons */
+  position: absolute; /* Allow positioning using pixels */
+  top: 236px; /* Adjust distance from the top of the page or container */
+  right: 560px; /* Adjust distance from the left side of the page or container */
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+/* Individual skin color button styling */
+.skin-color-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 16px; /* Rounded square: not full circle but soft corners */
+  background-color: #ccc; /* Set custom tone in HTML */
+  cursor: url('images/ninicursor.cur'), auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+/* Optional: Add hover effect or color change to buttons */
+.skin-color-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(196, 75, 140, 0.3);
+  border-color: #c44b8c;
+}
+
+
+
+#nameDisplay {
+  position: absolute;
+  top: 115px; /* Places it right above the container */
+  left: 185px;
+  transform: translateX(-50%) translateY(-10px); /* Center + move slightly up */
+  background-color: #f9bfde;
+  padding: 6px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.2rem;
+  color: #a14bc1;
+  z-index: 10;
+  cursor: url('images/ninicursor.cur'), auto;
+  white-space: nowrap;
+}
+
+
+
+.name-input-container {
+  background-image: url('https://i.pinimg.com/736x/d8/b6/2d/d8b62dbaf02b9f9093ae41885297d0ef.jpg');
+  border-radius: 16px;
+  padding: 10px 14px;
+  position: absolute;
+  max-width: 200px; /* Even smaller now */
+  margin: 20px auto;
+  top: 70px;
+  left: 70px;
+  box-shadow: 0 6px 10px rgba(255, 210, 240, 0.4);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-width: 3px;
+border-style: solid;
+border-color: #038888;
+  cursor: url('images/ninicursor.cur'), auto;
+  animation: floatyPop 1s ease-in-out;
+}
+
+@keyframes floatyPop {
+  0% {
+    transform: scale(0.95) translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.name-input-container label {
+  font-size: 0.95rem;
+  color: #084455;
+  margin-bottom: 6px;
+  font-weight: bold;
+  cursor: url('images/ninicursor.cur'), auto;
+}
+
+.name-input-container input {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 2px solid #92b048;
+  outline: none;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  cursor: url('images/ninicursor.cur'), auto;
+  background-color: #ffffff;
+  color: #5b2a86;
+  box-shadow: 0 2px 4px rgba(255, 182, 255, 0.2);
+}
+
+.name-input-container input:focus {
+  border-color: #DEB033;
+  box-shadow: 0 0 6px #ffd1fa;
+}
+
+.name-input-container input::placeholder {
+  color: #92b048;
+  font-size: 0.85rem;
+}
+
+/* 🌟 Smaller & even cuter submit button */
+.name-input-container button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-image: url('images/submitback.jpg');
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #335083;
+  font-weight: bold;
+  cursor: url('images/ninicursor.cur'), auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.name-input-container button:hover {
+  background-color: #fff3a0;
+  transform: scale(1.05);
+  box-shadow: 0 0 6px #ffd1fa;
+}
+
+
+.name-input-container .input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Adjust button so it doesn't look too big next to input */
+.name-input-container button {
+  margin-top: 0; /* remove the top margin */
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+
   </style>
 </head>
 <body>
@@ -213,109 +841,514 @@
     <img src="images/backhome.png" alt="Back to Homepage">
   </button>
 
+  <img id="volume-icon" src="images/volumeicon.png" alt="Volume Icon" />
 
-<!-- Volume Icon -->
-<img id="volume-icon" src="images/volumeicon.png" alt="Volume Icon" />
-
-
-  <div id="game-container">
-    <!-- INTRO SCREEN -->
-    <div id="intro-screen">
-      <img src="images/minielements.png" alt="Mini Background Elements" class="full-width-img" id="minielements" />
-      <img src="images/minicover.png" alt="Mini Game Cover" class="center-img" id="minicover" />
-      <img src="images/playbutton.png" alt="Start Game" class="center-img" id="play-button" onclick="startGame()" />
-      <img src="images/puzzleplay.png" alt="Puzzle Play" class="center-img" id="puzzleplay" onclick="startPuzzle()" />
+  <div class="game-container">
+    <!-- Cover page -->
+    <div class="cover-page" id="cover-page">
+      <img src="images/dressuplogo.png" class="logo-img" alt="Dress Up Logo" />
+      <img src="images/ninicurtain.png" class="curtain-img" alt="Curtain" />
+      <img src="images/startdress.png" class="start-btn" id="start-btn" alt="Start Button" />
     </div>
 
-    <!-- GAME SCREEN -->
-    <div id="game-screen" class="hidden">
-      <!-- Puzzle Options -->
-      <div id="puzzle-options">
-        <img class="puzzle-btn" src="images/puzzle1.png" alt="Puzzle 1" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=0cb592b86bb8&view=iframe')" />
-        <img class="puzzle-btn" src="images/puzzle2.png" alt="Puzzle 2" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=0c4db1491d62&view=iframe')" />
-        <img class="puzzle-btn" src="images/puzzle3.png" alt="Puzzle 3" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=3b7eefd98f59&view=iframe')" />
+
+    <!-- Audio element -->
+    <audio id="dresscute" src="audio/dresscute.mp3"></audio>
+    <audio id="dressmusic" src="audio/dressmusic.mp3" loop></audio>
+    <audio id="clothessound" src="audio/clothessound.mp3" preload="auto"></audio>
+    <audio id="dresspop" src="audio/dresspop.mp3" preload="auto"></audio>
+
+    <!-- Game content - hidden initially -->
+    <div class="game-content" id="game-content">
+
+
+
+      <button id="backtocover">
+        <img src="images/backtocover.png" alt="Back to Cover" />
+      </button>
+      <!-- Character Section (left side) -->
+      <div class="character" id="character">
       </div>
+      <button id="randomize">
+        <img src="images/randomize.png" alt="Randomize Outfit">
+      </button>
+     
+  <img src="images/light.png" alt="Light Image" id="light-image" class="light-image" />
+<img src="images/medium.png" alt="Medium Skin" id="medium-image" class="skin-image" />
+<img src="images/olive.png" alt="Olive Skin" id="olive-image" class="skin-image" />
+<img src="images/brown.png" alt="Brown Skin" id="brown-image" class="skin-image" />
 
-      <style>
-        .iframe-container {
-          margin-top: -10px; /* Adjust this value to move the container up or down */
-        }
-      </style>
+<!--Tops-->
+<img src="images/ruffletop.png" alt="Ruffle Top" class="ruffle-top" style="display: none;" />
+<img src="images/cardigan.png" alt="Cardigan" class="cardigan" style="display: none;" />
+<img src="images/wraptop.png" alt="Wrap Top" class="wrap-top" style="display: none;" />
+
+<!--Bottoms-->
+<img src="images/jeanskirt.png" alt="Jean Skirt" class="jean-skirt" style="display: none;" />
+<img src="images/khakiskirt.png" alt="Khaki Skirt" class="khaki-skirt" style="display: none;" />
+<img src="images/grayskirt.png" alt="Gray Skirt" class="gray-skirt" style="display: none;" />
+
+<!--Shoes-->
+<img src="images/brownboots.png" alt="Brown Boots" class="brown-boots" style="display: none;" />
+<img src="images/sneakers.png" alt="Sneakers" class="sneakers" style="display: none;" />
+<img src="images/maryjanes.png" alt="Mary Janes" class="mary-janes" style="display: none;" />
+
+<!--Hair-->
+<img src="images/brownupdo.png" alt="Brown Updo" class="brown-updo" style="display: none;" />
+<img src="images/braidblonde.png" alt="Braid Blonde" class="braid-blonde" style="display: none;" />
+<img src="images/wavyhair.png" alt="Wavy Hair" class="wavy-hair" style="display: none;" />
+
+
+<!--Facial Expression-->
+<img src="images/default.png" alt="Default" class="default" style="display: none;" />
+<img src="images/smile.png" alt="Smile" class="smile" style="display: none;" />
+<img src="images/tongue.png" alt="Tongue" class="tongue" style="display: none;" />
+
+
+<!--Pets-->
+<img src="images/petcub.png" alt="Pet Cub" class="pet-cub" style="display: none;" />
+<img src="images/petbunny.png" alt="Pet Bunny" class="pet-bunny" style="display: none;" />
+<img src="images/petcat.png" alt="Pet Cat" class="pet-cat" style="display: none;" />
 
 
 
-      <!-- Embed JigsawPlanet Puzzle -->
-      <div class="iframe-container">
-        <iframe id="puzzle-frame" src="https://www.jigsawplanet.com/?rc=play&pid=3b7eefd98f59&view=iframe" style="width: 600px; height: 500px;" frameborder="0" allowfullscreen></iframe>
       
+            <!-- Name input field -->
+            <div class="name-input-container" id="nameInputContainer">
+              <label for="characterName"></label>
+              <div class="input-row">
+                <input type="text" id="character-name" placeholder="Name Your Doll" />
+                <button onclick="submitName()">Submit</button>
+              </div>
+            </div>
 
-        <audio id="letsplayaudio" src="audio/letsplayaudio.mp3"></audio>
-        <audio id="minimusic" src="audio/minimusic.mp3"></audio>
-        <audio id="button-bloop" src="audio/buttonbloop.mp3"></audio>
 
+            <!-- This will show the name after it's submitted -->
+<div id="nameDisplay" style="display: none; font-family: 'Comic Sans MS', cursive; font-size: 1.2rem; color: #b83d7c; text-align: center;"></div>
+
+            <!-- Skin Color Buttons -->
+<div class="skin-color-buttons">
+  <button class="skin-color-btn" id="skin-color-1" style="background-color: #FFD2B1;" onclick="changeSkinColor('#f1c27d')"></button> <!-- Skin 1 -->
+  <button class="skin-color-btn" id="skin-color-2" style="background-color: #e0ac69;" onclick="changeSkinColor('#e0ac69')"></button> <!-- Skin 2 -->
+  <button class="skin-color-btn" id="skin-color-3" style="background-color: #c68642;" onclick="changeSkinColor('#c68642')"></button> <!-- Skin 3 -->
+  <button class="skin-color-btn" id="skin-color-4" style="background-color: #8d5524;" onclick="changeSkinColor('#8d5524')"></button> <!-- Skin 4 -->
+</div>
+
+<div class="clothing-panel">
+  <!-- Category Icons -->
+  <div class="category-buttons">
+    <button class="icon-btn" onclick="showClothingOptions('hair')">
+      <img src="images/hairopt.png" alt="Hair Icon" class="icon-img" />
+    </button>
+    <button class="icon-btn" onclick="showClothingOptions('face')">
+      <img src="images/faceopt.png" alt="Face Icon" class="icon-img" />
+    </button>
+    <button class="icon-btn" onclick="showClothingOptions('top')">
+      <img src="images/topopt.png" alt="Top Icon" class="icon-img" />
+    </button>
+    <button class="icon-btn" onclick="showClothingOptions('bottom')">
+      <img src="images/bottomopt.png" alt="Bottom Icon" class="icon-img" />
+    </button>
+    <button class="icon-btn" onclick="showClothingOptions('shoes')">
+      <img src="images/shoeopt.png" alt="Shoes Icon" class="icon-img" />
+    </button>
+    <button class="icon-btn" onclick="showClothingOptions('pet')">
+      <img src="images/petopt.png" alt="Pet Icon" class="icon-img" />
+    </button>
+</div>
+
+  <!-- Dynamic Options Panel -->
+  <div class="options-container">
+    <!-- This will be populated based on selection -->
+    <div class="option-section" id="hair-options">
+      <button class="clothing-btn" onclick="changeClothes('brownupdo')">
+        <img src="images/brownupdo.png" alt="Brown Updo">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('braidblonde')">
+        <img src="images/braidblonde.png" alt="Blonde Braid">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('wavyhair')">
+        <img src="images/wavyhair.png" alt="Wavy Hair">
+      </button>
+    </div>
+
+    <div class="option-section" id="face-options">
+      <button class="clothing-btn" onclick="changeClothes('default')">
+        <img src="images/default.png" alt="Default Face">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('smile')">
+        <img src="images/smile.png" alt="Smiling Face">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('tongue')">
+        <img src="images/tongue.png" alt="Tongue Out Face">
+      </button>
+    </div>
+
+    <div class="option-section" id="top-options">
+      <button class="clothing-btn" onclick="changeClothes('ruffletop')">
+        <img src="images/ruffletop.png" alt="Ruffle Top">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('cardigan')">
+        <img src="images/cardigan.png" alt="Cardigan">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('wraptop')">
+        <img src="images/wraptop.png" alt="Wrap Top">
+      </button>
+    </div>
+    
+
+    <div class="option-section" id="bottom-options">
+      <button class="clothing-btn" onclick="changeClothes('jeanskirt')">
+        <img src="images/jeanskirt.png" alt="Jean Skirt">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('khakiskirt')">
+        <img src="images/khakiskirt.png" alt="Khaki Skirt">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('grayskirt')">
+        <img src="images/grayskirt.png" alt="Gray Skirt">
+      </button>
+    </div>
+    
+    <div class="option-section" id="shoes-options">
+      <button class="clothing-btn" onclick="changeClothes('brownboots')">
+        <img src="images/brownboots.png" alt="Brown Boots">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('sneakers')">
+        <img src="images/sneakers.png" alt="Sneakers">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('maryjanes')">
+        <img src="images/maryjanes.png" alt="Mary Janes">
+      </button>
+    </div>
+
+    <div class="option-section" id="pet-options">
+      <button class="clothing-btn" onclick="changeClothes('petcub')">
+        <img src="images/petcub.png" alt="Cub Pet">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('petbunny')">
+        <img src="images/petbunny.png" alt="Bunny Pet">
+      </button>
+      <button class="clothing-btn" onclick="changeClothes('petcat')">
+        <img src="images/petcat.png" alt="Cat Pet">
+      </button>
+    </div>
+    
 
   <script>
-    const playButton = document.getElementById('play-button');
-    const gameArea = document.getElementById('game-screen');
-    const introScreen = document.getElementById('intro-screen');
+    function startGame() {
+      const audio = document.getElementById("dresscute");
+    if (audio) {
+      audio.play();
+    }
+      document.getElementById('cover-page').style.display = 'none';
+      document.getElementById('game-content').style.display = 'flex';
+      document.getElementById('game-content').classList.add('active'); // Activate game content and light image
+      document.getElementById('character').style.display = 'block';
+      document.querySelector(".skin-color-buttons").style.display = "flex";
+      const music = document.getElementById('dressmusic');
+  music.play();
 
-
- function startGame() {
-  const letsPlayAudio = document.getElementById('letsplayaudio'); // Get the letsplayaudio element
-  letsPlayAudio.play(); // Play the letsplayaudio when the game starts
-  
-  const miniMusic = document.getElementById('minimusic'); // Get the minimusic audio element
-  miniMusic.play(); // Play the minimusic when the game starts
-  
-  // Show the game screen and hide the intro screen
-  gameArea.style.display = 'block';
-  introScreen.style.display = 'none';
-}
-
-    // Function to show the puzzle options
-    function startPuzzle() {
-      document.getElementById('puzzle-options').style.display = 'block';
     }
 
+    
+    document.getElementById("start-btn").addEventListener("click", startGame);
 
-   // Get all the puzzle buttons
-const puzzleButtons = document.querySelectorAll('.puzzle-btn');
-const buttonBloopAudio = document.getElementById('button-bloop');
 
-// Set the volume to a lower level (e.g., 0.3 is 30% of full volume)
-buttonBloopAudio.volume = 0.3;
+    document.getElementById('backtocover').addEventListener('click', function () {
 
-// Add hover effect for each puzzle button to play the sound
-puzzleButtons.forEach(button => {
-  button.addEventListener('mouseover', () => {
-    buttonBloopAudio.play(); // Play the audio when hovering over the button
-  });
+
+  
+  document.getElementById('game-content').style.display = 'none';
+
+
+  
+  // Show the cover page again
+  document.getElementById('cover-page').style.display = 'flex';
+
+
+  
+
+  // Stop the music
+  const music = document.getElementById('dressmusic');
+  music.pause();
+  music.currentTime = 0;
 });
 
-    // Function to choose and load a puzzle into the iframe
-    function choosePuzzle(puzzleUrl) {
-      document.getElementById('puzzle-frame').src = puzzleUrl;
-    }
 
 
-// Volume control
+const iconButtons = document.querySelectorAll('.icon-btn');
+const hoverSound = document.getElementById('clothessound');
+
+hoverSound.volume = 0.3; // 🎚️ make it gentle!
+
+iconButtons.forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+});
+    
+    // Volume control
 const volumeIcon = document.getElementById('volume-icon');
-const miniMusic = document.getElementById('minimusic');
+const dressMusic = document.getElementById('dressmusic');
 
 // Set initial volume (100%)
-miniMusic.volume = 0.50;
+dressMusic.volume = 0.25;
+let volumeState = 0; // 0 = full, 1 = low, 2 = mute
 
-// Add event listener to the volume icon
-volumeIcon.addEventListener('click', function() {
-  // Toggle volume between 100% and 30%
-  if (miniMusic.volume === 0.50) {
-    miniMusic.volume = 0.1; // Set volume to 30%
+volumeIcon.addEventListener('click', function () {
+  if (volumeState === 0) {
+    dressMusic.volume = 0.1;
+    volumeState = 1;
+  } else if (volumeState === 1) {
+    dressMusic.volume = 0.0;
+    volumeState = 2;
   } else {
-    miniMusic.volume = 0.50; // Set volume to 100%
+    dressMusic.volume = 0.25;
+    volumeState = 0;
   }
 });
 
+function getRandomFrom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 
+  const hairOptions = ['brownupdo', 'braidblonde', 'wavyhair'];
+  const faceOptions = ['default', 'smile', 'tongue'];
+  const topOptions = ['ruffletop', 'cardigan', 'wraptop'];
+  const bottomOptions = ['jeanskirt', 'khakiskirt', 'grayskirt'];
+  const shoesOptions = ['brownboots', 'sneakers', 'maryjanes'];
+  const petOptions = ['petcub', 'petbunny', 'petcat'];
+  const skinOptions = ['#f1c27d', '#e0ac69', '#c68642', '#8d5524'];
+
+  function randomizeOutfit() {
+    changeClothes(getRandomFrom(hairOptions));
+    changeClothes(getRandomFrom(faceOptions));
+    changeClothes(getRandomFrom(topOptions));
+    changeClothes(getRandomFrom(bottomOptions));
+    changeClothes(getRandomFrom(shoesOptions));
+    changeClothes(getRandomFrom(petOptions));
+    changeSkinColor(getRandomFrom(skinOptions));
+  }
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("randomize").addEventListener("click", randomizeOutfit);
+  });
+
+  function submitName() {
+    const nameInput = document.getElementById("character-name").value.trim();
+    const nameContainer = document.getElementById("nameInputContainer");
+    const nameDisplay = document.getElementById("nameDisplay");
+
+    if (nameInput !== "") {
+      nameDisplay.textContent = `Welcome, ${nameInput}!`; // You can change this text however you like
+      nameContainer.style.display = "none";
+      nameDisplay.style.display = "block";
+    }
+  }
+
+
+    
+    function changeSkinColor(color) {
+  const character = document.getElementById('character');
+  const lightImage = document.getElementById('light-image');
+  const mediumImage = document.getElementById('medium-image');
+  const oliveImage = document.getElementById('olive-image');
+  const brownImage = document.getElementById('brown-image');
+
+  // Set the character background color based on the selected button
+  character.style.backgroundColor = color;
+
+  // Hide all skin images
+  lightImage.style.display = 'none';
+  mediumImage.style.display = 'none';
+  oliveImage.style.display = 'none';
+  brownImage.style.display = 'none';
+
+  // Show the selected skin image based on the color
+  if (color === '#f1c27d') { // Example: Light Skin
+    lightImage.style.display = 'block';
+  } else if (color === '#e0ac69') { // Medium Skin
+    mediumImage.style.display = 'block';
+  } else if (color === '#c68642') { // Olive Skin
+    oliveImage.style.display = 'block';
+  } else if (color === '#8d5524') { // Brown Skin
+    brownImage.style.display = 'block';
+  }
+}
+function showClothingOptions(category) {
+  // Hide all sections
+  const allSections = document.querySelectorAll('.option-section');
+  allSections.forEach(section => section.classList.remove('active'));
+
+  // Show the selected section
+  const selected = document.getElementById(`${category}-options`);
+  if (selected) {
+    selected.classList.add('active');
+  }
+}
+
+
+function changeClothes(option) {
+  var character = document.getElementById('character');
+  character.innerHTML = ""; // Clear any existing clothing on the character
+    // 🎵 Play dresspop sound
+    const pop = new Audio("audio/dresspop.mp3");
+pop.volume = 0.5; // 🎚️ adjust volume here
+pop.play();
+
+
+  
+
+  function selectFace(face) {
+    // Hide all faces
+    document.querySelectorAll('.default, .smile, .tongue').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // Show the selected face
+    document.querySelector(face).style.display = 'block';
+  }
+
+
+
+// Set the hair display based on the selected hair
+function selectHair(hair) {
+    // Hide all hair
+    document.querySelectorAll('.brown-updo, .braid-blonde, .wavy-hair').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // Show the selected hair
+    document.querySelector(hair).style.display = 'block';
+  }
+
+
+
+
+  function selectPet(pet) {
+    // Hide all pets
+    document.querySelectorAll('.pet-cub, .pet-bunny, .pet-cat').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // Show the selected pets
+    document.querySelector(pet).style.display = 'block';
+  }
+
+
+
+  // Set the top display based on the selected top
+  function selectTop(top) {
+    // Hide all tops
+    document.querySelectorAll('.ruffle-top, .cardigan, .wrap-top').forEach(function(el) {
+      el.style.display = 'none';
+    });
+
+    // Show the selected top
+    document.querySelector(top).style.display = 'block';
+  }
+
+  // Set the bottom display based on the selected bottom
+  function selectBottom(bottom) {
+    // Hide all bottoms
+    document.querySelectorAll('.jean-skirt, .khaki-skirt, .gray-skirt').forEach(function(el) {
+      el.style.display = 'none';
+    });
+
+    // Show the selected bottom
+    document.querySelector(bottom).style.display = 'block';
+  }
+
+
+  // Set the shoes display based on the selected shoes
+  function selectShoes(shoes) {
+    // Hide all shoes
+    document.querySelectorAll('.brown-boots, .sneakers, .mary-janes').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    // Show the selected shoes
+    document.querySelector(shoes).style.display = 'block';
+  }
+
+
+
+  // Determine which top to show based on the selected option
+
+
+ // Face options
+ if (option === 'default') {
+    selectFace('.default');
+  } else if (option === 'smile') {
+    selectFace('.smile');
+  } else if (option === 'tongue') {
+    selectFace('.tongue');
+  }
+
+
+  
+  // Hair options
+  if (option === 'brownupdo') {
+    selectHair('.brown-updo');
+  } else if (option === 'braidblonde') {
+    selectHair('.braid-blonde');
+  } else if (option === 'wavyhair') {
+    selectHair('.wavy-hair');
+  }
+
+
+
+
+ // Pet options
+ if (option === 'petcub') {
+    selectPet('.pet-cub');
+  } else if (option === 'petbunny') {
+    selectPet('.pet-bunny');
+  } else if (option === 'petcat') {
+    selectPet('.pet-cat');
+  }
+
+
+
+
+  if (option === 'ruffletop') {
+    selectTop('.ruffle-top');
+  } else if (option === 'cardigan') {
+    selectTop('.cardigan');
+  } else if (option === 'wraptop') {
+    selectTop('.wrap-top');
+  } 
+
+  // Determine which bottom to show based on the selected option
+  if (option === 'jeanskirt') {
+    selectBottom('.jean-skirt');
+  } else if (option === 'khakiskirt') {
+    selectBottom('.khaki-skirt');
+  } else if (option === 'grayskirt') {
+    selectBottom('.gray-skirt');
+  }
+
+  if (option === 'brownboots') {
+    selectShoes('.brown-boots');
+  } else if (option === 'sneakers') {
+    selectShoes('.sneakers');
+  } else if (option === 'maryjanes') {
+    selectShoes('.mary-janes');
+  }
+
+
+
+
+}
+// Function to go back to the clothing options
+function backToOptions() {
+  // Hide the specific category options
+  const optionSections = document.querySelectorAll('.option-section');
+  optionSections.forEach(section => section.style.display = 'none');
+
+  // Show the main clothing options again
+  document.getElementById('clothing-options').style.display = 'flex';
+}
+
+   
   </script>
 </body>
 </html>
