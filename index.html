@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/ninifav.png">
+
+
     <title>Nini's Pockets of Fun</title>
     <style>
 
@@ -24,6 +29,271 @@
             cursor: url('images/ninicursor.cur'), auto !important;
                     overflow:hidden;
         }
+
+
+
+        
+
+        .nav-image {
+  display: block;
+  margin: 70px auto 0 auto; 
+  margin-left:15px;
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  border: 3px dashed #164a64;
+  border-radius: 5px; 
+}
+
+
+.pin-needle {
+    position: absolute;
+    bottom: -20px;
+    left: 250px;
+    width: 195px;
+    height: auto;
+}
+
+.sewing-thread {
+  position: absolute;
+  bottom: -10px;          
+  left: 400px;
+  width: 95px;
+  height: auto;        
+}
+
+.nini-home {
+  position: absolute;
+  top: 60px;         
+  left: 777px;         
+  width: 400px;     
+  height: auto;       
+  transition: transform 0.3s ease;  
+}
+
+
+.nini-home:hover {
+  animation: bounce 0.5s ease infinite;
+}
+
+
+@keyframes bounce {
+  0% { transform: translateY(0); }       
+  30% { transform: translateY(-10px); } 
+  50% { transform: translateY(0); } 
+  70% { transform: translateY(-5px); } 
+  100% { transform: translateY(0); } 
+}
+
+.keychain {
+  position: absolute;
+  top: 285px;  
+  left: 440px;
+  width: 60px;
+  z-index: 999;
+  height: auto;
+}
+
+@keyframes swing {
+  0% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(10deg);
+  }
+  50% {
+      transform: rotate(-10deg);
+  }
+  75% {
+      transform: rotate(10deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+
+
+.keychain {
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.keychain:hover {
+  animation: swing 0.5s ease;
+}
+
+
+.nav-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: url('images/ninicursor.cur'), auto !important;
+  position: absolute;
+  width: auto; 
+}
+
+.nav-button img {
+  width: 140px; 
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+@keyframes rotateAndBounce {
+  0% {
+    transform: rotate(0deg) translateY(0) translateX(0);
+  }
+  50% {
+    transform: rotate(10deg) translateY(-10px) translateX(10px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0) translateX(0); 
+  }
+}
+
+
+.nav-button:hover img {
+  animation: rotateAndBounce 0.5s ease; 
+}
+
+
+
+
+
+
+.button-home {
+  top: 240px;
+  left: 30px;
+}
+
+.button-backstory {
+  top: 305px;
+  left: 30px;
+}
+
+.button-explore {
+  top: 370px;
+  left: 30px;
+}
+
+.button-minigame {
+  top: 435px;
+  left: 30px;
+}
+
+
+body {
+  position: absolute;
+  height: 100vh;
+  margin: 0;
+}
+
+
+.yellowbut {
+  position: absolute;
+  top: 495px;
+  left: 350px;
+  width: 30px; 
+  height: auto;
+}
+
+.pinkbut {
+  position: absolute;
+  top: 450px;
+  left: 320px;
+  width: 35px; 
+  height: auto;
+}
+
+.bluebut {
+  position: absolute;
+  top: 490px;
+  left: 285px;
+  width: 40px;
+  height: auto;
+}
+
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+.yellowbut,
+.pinkbut,
+.bluebut {
+  position: absolute;
+  height: auto;
+  z-index: 10; 
+  transition: transform 0.5s ease-in-out;  
+}
+
+
+.yellowbut:hover,
+.pinkbut:hover,
+.bluebut:hover {
+  animation: spin 1s linear infinite;
+}
+
+
+.yellowbut {
+  top: 495px; 
+  left: 350px;
+  width: 30px;
+}
+
+.pinkbut {
+  top: 450px;
+  left: 320px;
+  width: 35px;
+}
+
+.bluebut {
+  top: 490px;
+  left: 285px;  
+  width: 40px;  
+}
+
+
+
+.homemusic {
+  position: absolute;
+  top: 30px;
+  left: 1175px;
+  width: 65px; /* Adjust size here */
+  height: auto;
+  cursor: url(images/ninicursor.cur), auto;
+  transition: transform 0.3s ease;
+}
+
+.homemusic:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.homemusic.playing {
+  animation: spin 2s linear infinite;
+}
+
+        /* Page content */
+        .content {
+            position: absolute;
+            margin-left: 475px;
+            margin-top: 463px;
+            padding: 20px;
+            color: rgb(15, 20, 61);
+        }
+
+
 
      
         /* Sidebar styles */
@@ -47,14 +317,94 @@
             background: #ff99bb;
         }
 
-        /* Page content */
-        .content {
-            position: absolute;
-            margin-left: 475px;
-            margin-top: 445px;
-            padding: 20px;
-            color: black;
-        }
+
+
+        .churro-pup {
+  position: absolute;
+  top: 420px;
+  left: 1075px;
+  width: 158px; /* you can adjust this! */
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: url('images/ninicursor.cur');
+}
+
+
+#churro-hint {
+  position: absolute;
+  top: 597px;
+  left: 1100px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 14px;
+  color: #7a5a00; /* deep golden brown text */
+  background-color: #fffde0; /* soft buttery yellow */
+  border: 2px solid #ffd85c; /* bright yellow border */
+  border-radius: 20px;
+  padding: 5px 12px;
+  box-shadow: 0 2px 6px rgba(255, 208, 85, 0.5); /* golden glow */
+  animation: wiggle 1.5s infinite;
+}
+
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+}
+
+
+
+.churro-pup:hover {
+  transform: scale(1.1) rotate(-5deg);
+  cursor: url('images/ninicursor.cur');
+}
+
+.speech-bubble-churro {
+  position: absolute;
+  top: 325px;  /* Adjust to place it above Churro */
+  left: 1150px;
+  transform: translateX(-50%);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  background-image: url(https://i.pinimg.com/736x/61/93/87/619387f8b0c2f441dcb1eac72180df31.jpg);
+  border: 2px #f1cb95;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; /* or 500 for medium-bold */
+  font-size: 16px;
+  color: #215b17;
+  box-shadow: 0 15px 10px rgba(220, 149, 48, 0.3);
+  text-align: center;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+/* Optional tail (for extra cuteness!) */
+.speech-bubble-churro::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #fff7d4 transparent transparent transparent;
+}
+
+/* When visible */
+.speech-bubble-churro.show {
+  display: block;
+  opacity: 1;
+}
+
+
+
+
+       
     </style>
 </head>
 <body>
@@ -74,7 +424,7 @@
 
                 <button class="nav-button button-home" 
                     onmouseover="playAudio()" 
-                    onclick="location.href='home.html'">
+                    onclick="location.href='index.html'">
                     <img src="images/button1.png" alt="Home">
                 </button>
                 
@@ -109,28 +459,42 @@
 
     <img src="images/sewing_thread.png" alt="Sewing Thread" class="sewing-thread">
 
+    <img src="images/homemusic.png" alt="Music Icon" class="homemusic" onclick="toggleMusic()" />
+    <audio id="indexmusic" src="audio/indexmusic.mp3" loop></audio>
+
+
+
     <audio id="barkAudio" src="audio/bark.mp3" preload="auto"></audio>
 
     <img src="images/churropup.png" alt="Churro the Puppy"
          onmouseover="playBark(); showText()"
          onmouseout="stopBark(); hideText()"
-         onclick="location.href='color.html'"
+         onclick="location.href='puzzleplay.html'"
          class="churro-pup"
          style="cursor: url('images/ninicursor.cur'); transition: transform 0.2s ease;" />
+
+         <p id="churro-hint">Hover on Churro!</p>
     
     <!-- Hidden text (cute churro pun) -->
-    <p id="churro-text" style="display: none; font-family: 'Pangolin', sans-serif; color: #1e073a; text-align: center; font-size: 18px; padding-top: 10px;">
-        Dress Up Game?
-    </p>
+    <div id="churro-bubble" class="speech-bubble-churro">
+        <p id="churro-text">PAW-zzle Play?</p>
+      </div>
 
-    <div class="content">
-        <h1 style="color:rgb(26, 47, 105); font-family:'Pangolin', sans-serif;">
-            Welcome Sweetie!&#127851;
+
+
+    
+      <div class="content">
+        <h1 style="color:rgb(26, 47, 105); font-family:'Pangolin', sans-serif; margin-bottom: -10px;">
+            Welcome Sweetie! &#127874;
+          </h1>
         </h1>
         <p style="font-family:'Pangolin', sans-serif;">
             Explore Nini's dollhouse with her. <br> Dive into the wonders of Nini's home world. <br> She'll show you around her toy-filled house!
         </p>
     </div>
+
+
+  
     <img src="images/pin_needle.png" alt="Pin Needle" class="pin-needle">
 
     <img src="images/yellowbut.png" alt="Yellow Button" class="yellowbut">
@@ -140,6 +504,103 @@
 
 </body>
 
-<script src="js/script.js"></script>
+<script>
+
+const niniHome = document.querySelector('.nini-home');
+const hoverSound = document.querySelector('#hoverSound');
+
+
+let hasInteracted = false;
+
+
+window.addEventListener('click', function() {
+    hasInteracted = true;
+});
+
+
+niniHome.addEventListener('mouseenter', function() {
+    if (hasInteracted) {
+        hoverSound.play().catch(function(error) {
+            console.log("Error playing sound:", error);
+        });
+    }
+});
+
+niniHome.addEventListener('mouseleave', function() {
+    hoverSound.pause();
+    hoverSound.currentTime = 0;
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const keychain = document.querySelector(".keychain");
+    const nyahAudio = document.getElementById("nyahAudio");
+
+    keychain.addEventListener("mouseenter", function () {
+        nyahAudio.currentTime = 0; 
+        nyahAudio.play().catch(error => console.log("Playback error:", error)); 
+    });
+});
+
+
+
+  function playAudio() {
+    var audio = document.getElementById('surprisedAudio');
+    audio.play(); // Play the audio
+}
+
+// Function to stop the audio when the hover ends
+function stopAudio() {
+    var audio = document.getElementById('surprisedAudio');
+    audio.pause(); // Pause the audio
+    audio.currentTime = 0; // Reset the audio to the beginning
+}
+
+
+
+function playBark() {
+    var audio = document.getElementById('barkAudio');
+    audio.play(); // Play the bark audio
+}
+
+function stopBark() {
+    var audio = document.getElementById('barkAudio');
+    audio.pause(); // Pause the bark
+    audio.currentTime = 0; // Reset to the start
+}
+
+function showText() {
+  document.getElementById("churro-bubble").classList.add("show");
+}
+
+function hideText() {
+  document.getElementById("churro-bubble").classList.remove("show");
+}
+
+
+function playAudio() {
+    var audio = document.getElementById('hoverAudio');
+    if (audio.paused) {
+        audio.currentTime = 0;
+        audio.volume = 0.7;
+        audio.play();
+    }
+}
+
+
+const musicIcon = document.querySelector('.homemusic');
+  const music = document.getElementById('indexmusic');
+
+  musicIcon.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      musicIcon.classList.add('playing');
+    } else {
+      music.pause();
+      musicIcon.classList.remove('playing');
+    }
+  });
+
+</script>
 
 </html>
