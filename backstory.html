@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/ninifav.png">
     <title>Nini's Backstory</title>
     <style>
         body {
@@ -15,6 +16,7 @@
             background-repeat: no-repeat, no-repeat;
             background-attachment: fixed;
             padding: 0;
+            cursor: url(images/ninicursor.cur), auto;
             height: 100vh;
             width: 100vw;
             margin: 0;
@@ -27,7 +29,25 @@
             line-height: 1.5; 
             color: #333;
             padding: 20px; 
+            cursor: url(images/ninicursor.cur), auto;
         }
+
+
+        .homemusic {
+  position: absolute;
+  top: 630px;
+  right: 1175px;
+  width: 65px; /* Adjust size here */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  cursor: url(images/ninicursor.cur), auto;
+}
+
+.homemusic:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+        
     </style>
 </head>
 <body>
@@ -64,19 +84,55 @@
     <img src="images/sparks.png" alt="Sparks" class="sparks">
 
     <img src="images/chibinini.png" alt="Chibi Nini" class="chibi-nini">
-    
+
 
     <p class="nini-backstory">
         Nini Yume is a playful doll, brought to life in a world full of <br> gumdrops, funky patterns, and cute buttons. <br>
         She values friendship above all, believing that the best moments in life are the ones shared with others. <br>
         Her love for trinkets and fashion is unmatched, always collecting colorful threads or scraps of fabric to add her personal touch to everything around her.
     </p>
+>
+
+<img src="images/homemusic.png" alt="Music Icon" class="homemusic" onclick="toggleMusic()" />
+<audio id="aboutnini" src="audio/aboutnini.mp3" loop></audio>
 
 
-    <button onclick="window.location.href='index.html';">Go to Home</button>
 
-</body>
-</html>
+    <button id="backhome" onclick="window.location.href='index.html';">
+        <img src="images/backhome.png" alt="Go Home">
+      </button>
+
+<script>
+      document.querySelector(".chibi-nini").addEventListener("click", function() {
+        this.style.animation = "jump 0.5s ease-out";
+        setTimeout(() => { this.style.animation = ""; }, 500);
+      });
+
+
+      const musicIcon = document.querySelector('.homemusic');
+const music = document.getElementById('aboutnini');
+
+let clickCount = 0;
+
+musicIcon.addEventListener('click', () => {
+  clickCount++;
+
+  if (clickCount === 1) {
+    music.volume = 1; // full volume on first click
+    music.play();
+    musicIcon.classList.add('playing');
+  } else if (clickCount === 2) {
+    music.volume = 0.3; // lower volume on second click
+  } else if (clickCount >= 3) {
+    music.pause(); // third click stops the music
+    musicIcon.classList.remove('playing');
+    clickCount = 0; // reset the cycle
+  }
+});
+
+
+    
+    </script>
 
 
 </body>
