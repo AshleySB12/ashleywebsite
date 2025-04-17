@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="images/ninifav.png">
+  <title>Nini's Puzzle Play!</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/58ffd5c3db29d64e26ece1a3/1519672686955-QR1NAWV6FIJ0490GOL91/Lala_dyna+house.jpg?format=1500w');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: url('images/ninicursor.cur'), auto;
+
+    }
+
+    #game-container {
+      width: 840px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 8px rgba(98, 7, 33, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  background-image: url('images/flowerback.jpg'); /* Make sure to replace with the correct path to your image */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Keeps the image centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .full-width-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .center-img {
+      display: block;
+      margin: 10px auto;
+    }
+
+#backhome {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border: none;
+  padding: 0;
+  cursor: url('images/ninicursor.cur'), auto;
+  border-radius: 5px;
+  z-index: 10;
+  background: none;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+#backhome img {
+  width: 140px; /* Adjust the width of the button */
+  height: auto; /* Keep the aspect ratio intact */
+}
+
+#backhome:hover {
+  box-shadow: 0 4px 8px rgba(39, 7, 135, 0.2);
+  animation: slideFromLeft 0.4s ease-out; 
+}
+
+/* Slide from Left Animation */
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(25%); 
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+    #volume-icon {
+  position: absolute;
+  top: 20px; /* Align it with the back button vertically */
+  left: 1470px; 
+  cursor: url('images/ninicursor.cur'), auto;
+  width: 45px; /* Adjust size of the icon */
+  height: auto; /* Adjust size of the icon */
+}
+
+    #puzzle-options {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  flex-wrap: nowrap;       
+  margin-top: -20px;       
+}
+
+.puzzle-btn {
+  width: 150px;
+  height: auto;
+  cursor: url('images/ninicursor.cur'), auto;
+  margin: 8px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out; /* Adding transition for smooth rotation */
+}
+
+.puzzle-btn:hover {
+  transform: rotate(5deg); /* Rotate the button slightly when hovered */
+}
+
+    #puzzle-board {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .puzzle-image {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #intro-screen {
+      position: relative;
+      z-index: 1;
+    }
+
+    #minielements {
+      position: absolute;
+      top: -185px;
+      left: -315px;
+      width: 615px;
+      height: auto;
+      z-index: 0;
+    }
+
+    #puzzleplay {
+      position: absolute;
+      top: -200px;
+      left: -140px;
+      z-index: 4;
+      cursor: url('images/ninicursor.cur'), auto;
+      width: 260px;
+      height: auto;
+      display: block;
+    }
+
+    #play-button {
+      position: absolute;
+      top: 220px;
+      left: -95px;
+      z-index: 3;
+      cursor: url('images/ninicursor.cur'), auto;
+      width: 175px;
+      height: auto;
+      display: block;
+    }
+
+    #minicover {
+      position: absolute;
+      top: -125px;
+      left: -295px;
+      width: 600px;
+      height: auto;
+      z-index: 2;
+    }
+
+    .iframe-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin-top: 20px;
+    }
+
+    iframe {
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="backhome" onclick="window.location.href='index.html'">
+    <img src="images/backhome.png" alt="Back to Homepage">
+  </button>
+
+<!-- Volume Icon -->
+<img id="volume-icon" src="images/volumeicon.png" alt="Volume Icon" />
+
+  <div id="game-container">
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen">
+      <img src="images/minielements.png" alt="Mini Background Elements" class="full-width-img" id="minielements" />
+      <img src="images/minicover.png" alt="Mini Game Cover" class="center-img" id="minicover" />
+      <img src="images/playbutton.png" alt="Start Game" class="center-img" id="play-button" onclick="startGame()" />
+      <img src="images/puzzleplay.png" alt="Puzzle Play" class="center-img" id="puzzleplay" onclick="startPuzzle()" />
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="hidden">
+      <!-- Puzzle Options -->
+      <div id="puzzle-options">
+        <img class="puzzle-btn" src="images/puzzle1.png" alt="Puzzle 1" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=0c0a0acbd1dd&view=iframe')" />
+        <img class="puzzle-btn" src="images/puzzle2.png" alt="Puzzle 2" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=011f28a96961&view=iframe')" />
+        <img class="puzzle-btn" src="images/puzzle3.png" alt="Puzzle 3" onclick="choosePuzzle('https://www.jigsawplanet.com/?rc=play&pid=278a203bd3f3&view=iframe')" />
+      </div>
+
+      <style>
+        .iframe-container {
+          margin-top: -10px; /* Adjust this value to move the container up or down */
+        }
+      </style>
+
+
+      <!-- Embed JigsawPlanet Puzzle -->
+      <div class="iframe-container">
+        <iframe id="puzzle-frame" src="https://www.jigsawplanet.com/?rc=play&pid=0c0a0acbd1dd&view=iframe" style="width: 600px; height: 500px;" frameborder="0" allowfullscreen></iframe>
+      
+
+        <audio id="letsplayaudio" src="audio/letsplayaudio.mp3"></audio>
+        <audio id="minimusic" src="audio/minimusic.mp3"></audio>
+        <audio id="button-bloop" src="audio/buttonbloop.mp3"></audio>
+
+  <script>
+    const playButton = document.getElementById('play-button');
+    const gameArea = document.getElementById('game-screen');
+    const introScreen = document.getElementById('intro-screen');
+
+ function startGame() {
+  const letsPlayAudio = document.getElementById('letsplayaudio'); // Get the letsplayaudio element
+  letsPlayAudio.play(); // Play the letsplayaudio when the game starts
+  
+  const miniMusic = document.getElementById('minimusic'); // Get the minimusic audio element
+  miniMusic.play(); // Play the minimusic when the game starts
+  
+  // Show the game screen and hide the intro screen
+  gameArea.style.display = 'block';
+  introScreen.style.display = 'none';
+}
+
+    // Function to show the puzzle options
+    function startPuzzle() {
+      document.getElementById('puzzle-options').style.display = 'block';
+    }
+
+   // Get all the puzzle buttons
+const puzzleButtons = document.querySelectorAll('.puzzle-btn');
+const buttonBloopAudio = document.getElementById('button-bloop');
+
+// Set the volume to a lower level (e.g., 0.3 is 30% of full volume)
+buttonBloopAudio.volume = 0.3;
+
+// Add hover effect for each puzzle button to play the sound
+puzzleButtons.forEach(button => {
+  button.addEventListener('mouseover', () => {
+    buttonBloopAudio.play(); // Play the audio when hovering over the button
+  });
+});
+
+    // Function to choose and load a puzzle into the iframe
+    function choosePuzzle(puzzleUrl) {
+      document.getElementById('puzzle-frame').src = puzzleUrl;
+    }
+
+// Volume control
+const volumeIcon = document.getElementById('volume-icon');
+const miniMusic = document.getElementById('minimusic');
+
+// Set initial volume (100%)
+miniMusic.volume = 0.50;
+let volumeState = 0; // 0 = full, 1 = low, 2 = mute
+
+volumeIcon.addEventListener('click', function () {
+  if (volumeState === 0) {
+    miniMusic.volume = 0.1;
+    volumeState = 1;
+  } else if (volumeState === 1) {
+    miniMusic.volume = 0.0;
+    volumeState = 2;
+  } else {
+    miniMusic.volume = 0.50;
+    volumeState = 0;
+  }
+});
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
